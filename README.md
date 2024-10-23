@@ -1,6 +1,6 @@
 # C# Basics Cheatsheet
 
-This is a simple cheatsheet for C# basic syntax, covering variables, loops, conditionals, and switch statements.
+This is a simple cheatsheet for C#
 
 ## Table Of Content
 

@@ -52,18 +52,20 @@ int value = Convert.ToInt32(input); // Converts the input string to an integer
 
 ```csharp
 double pi = 3.14159;
-int truncatedPi = (int)pi; // Converts `double` to `int`, resulting in 3 (decimal part is lost)
+int intPi = (int)pi; // Converts `double` to `int`, resulting in 3 (decimal part is lost)
 
 int num = 42;
 float numFloat = (float)num; // Converts `int` to `float`
 ```
+**Note:** Here is show another way to convert numbers by changing the datetype of the original variable temperaly before saving it.
+`Convert.ToInt32(pi);` and `Convert.ToSingle(num1);` would have given the same result. 
 
 ```csharp
 string numberString = "100";
 int number = Convert.ToInt32(numberString); // Parses "100" to an integer
 
 string decimalString = "2.718";
-double eulerNumber = Convert.ToDouble(decimalString); // Parses "2.718" to a double
+double doubleNumber = Convert.ToDouble(decimalString); // Parses "2.718" to a double
 ```
 **Date and Time Conversion:** `DateTime.Parse` or `DateTime.TryParse` are useful for handling date inputs.
 
@@ -289,7 +291,8 @@ switch (day)
 ```csharp
 // Syntax: Type[] arrayName = new Type[size];
 int[] numbers = new int[5]; // Initializes an int array of size 5 with values { 0, 0, 0, 0, 0 }
-string[] names = new string[] { "Alice", "Bob", "Charlie" }; // An array with initial values of size 3 with values { "Alice", "Bob", "Charlie" }
+string[] names = new string[] { "Alice", "Bob", "Charlie" };
+// An array with initial values of size 3 with values { "Alice", "Bob", "Charlie" }
 ```
 **Important:** When you create an array without specifying values, C# initializes it with default values for that data type (e.g., `0` for `int`, `null` for `string`).
 

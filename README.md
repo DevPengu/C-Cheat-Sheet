@@ -62,16 +62,16 @@ float numFloat = (float)num; // Converts `int` to `float`
 
 ```csharp
 string numberString = "100";
-int number = Convert.ToInt32(numberString); // Parses "100" to an integer
+int number = Convert.ToInt32(numberString); // Converts "100" to an integer
 
 string decimalString = "2.718";
-double doubleNumber = Convert.ToDouble(decimalString); // Parses "2.718" to a double
+double doubleNumber = Convert.ToDouble(decimalString); // Converts "2.718" to a double
 ```
-**Date and Time Conversion:** `DateTime.Parse` or `DateTime.TryParse` are useful for handling date inputs.
+**Date and Time Conversion:** `Convert.ToDateTime` are useful for handling date inputs.
 
 ```csharp
 string dateString = "2024-10-27";
-DateTime date = DateTime.Parse(dateString); // Converts the string to a DateTime object
+DateTime date = Convert.ToDateTime(dateString); // Converts the string to a DateTime object
 ```
 
 **Note:** Most data types don’t need to be explicitly converted to `string` when used with `Console.Write` or `Console.WriteLine` because C# automatically converts them to a string for display.

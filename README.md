@@ -5,16 +5,18 @@ This is a simple cheatsheet for C#
 ## Table Of Content
 
 - [Variables](#1-variables)
+- [Change Variables](#15-changing-variable-types)
 - [Operations](#2-operations)
 - [For loop](#3-for-loop)
 - [While loop](#4-while-loop)
 - [If statement](#5-if-statement)
 - [Switch Case](#8-switch-case)
+- [Array](#9-arrays)
 ---
 
 ## 1. Variables
 
-**Definition**: A variable stores data values of different types.
+**Definition:** A variable stores data values of different types.
 
 ```csharp
 // Syntax: Type variableName = value;
@@ -31,6 +33,48 @@ bool isTrue = true;    // boolean (true/false)
 * **bool** for true/false values (e.g., true, false).
 
 **Important:** A variable declared as one type can only hold that type. For example, an int variable can never hold text or a boolean value.
+
+Here's how the examples can look when formatted in your existing structure:
+
+---
+
+## 1.5 Changing Variable Types
+
+**Definition:** Variables in C# are strongly typed, meaning each variable has a fixed type. However, sometimes you may need to convert one type to another, such as converting a `string` to an `int` when reading numeric user input from `Console.ReadLine()`.
+
+```csharp
+string input = Console.ReadLine(); // User inputs: 55
+// `input` is now "55" (a string), so it can't be used directly as an integer
+int value = Convert.ToInt32(input); // Converts the input string to an integer
+```
+
+### Other Type Conversion Examples
+
+**Numeric Conversions:** Converting between numeric types (e.g., from `double` to `int`) may lead to data loss if moving to a less precise type.
+
+```csharp
+double pi = 3.14159;
+int truncatedPi = (int)pi; // Converts `double` to `int`, resulting in 3 (decimal part is lost)
+
+int num = 42;
+float numFloat = (float)num; // Converts `int` to `float`
+```
+
+```csharp
+string numberString = "100";
+int number = Convert.ToInt32(numberString); // Parses "100" to an integer
+
+string decimalString = "2.718";
+double eulerNumber = Convert.ToDouble(decimalString); // Parses "2.718" to a double
+```
+**Date and Time Conversion:** `DateTime.Parse` or `DateTime.TryParse` are useful for handling date inputs.
+
+```csharp
+string dateString = "2024-10-27";
+DateTime date = DateTime.Parse(dateString); // Converts the string to a DateTime object
+```
+
+**Note:** Most data types don’t need to be explicitly converted to `string` when used with `Console.Write` or `Console.WriteLine` because C# automatically converts them to a string for display.
 
 ## 2. Operations
 ```csharp
@@ -239,3 +283,58 @@ switch (day)
 * case 2: runs because day is 2, so it prints "Tuesday".
 * The break; statement is important because it tells the program to stop checking further cases after finding a match. If break; wasn't there, the program would continue to the next case, which is usually not what you want.
 * The default block runs if none of the cases match. It’s like an else for the switch statement. If day had been a value other than 1, 2, or 3, "Other day" would have been printed.
+
+## 9. Arrays
+
+**Definition:** An array is a collection of variables of the same type, stored together and accessible by index (The position of the value in the array 0 first index and for a size 5 array 4 is last index). Arrays allow you to store multiple values in a single variable, making it easier to manage related data.
+
+```csharp
+// Syntax: Type[] arrayName = new Type[size];
+int[] numbers = new int[5]; // Initializes an int array of size 5 with values { 0, 0, 0, 0, 0 }
+string[] names = new string[] { "Alice", "Bob", "Charlie" }; // An array with initial values of size 3 with values { "Alice", "Bob", "Charlie" }
+```
+**Important:** When you create an array without specifying values, C# initializes it with default values for that data type (e.g., `0` for `int`, `null` for `string`).
+
+**Explanation:** Arrays are fixed in size, meaning you define their length at the time of creation and it cannot be changed. Each element in the array is accessible by its index, with the first element at index 0.
+
+* **Type[]** defines the array’s data type (e.g., `int[]`, `string[]`).
+* **Indexing** starts at 0, so the first element is at `arrayName[0]`.
+* **Fixed Size** means once an array is created with a specific length, that length cannot be modified.
+
+### Accessing and Modifying Array Elements
+
+```csharp
+int[] numbers = { 10, 20, 30, 40, 50 };
+Console.WriteLine(numbers[2]); // Accesses the third element, output: 30
+
+numbers[2] = 35;               // Modifies the third element to 35
+Console.WriteLine(numbers[2]); // Outputs: 35
+```
+
+### Common Array Operations
+
+1. **Looping through Arrays:** Use loops like `for` or `foreach` to process array elements.
+
+    ```csharp
+    int[] numbers = { 1, 2, 3, 4, 5 };
+
+    // Using a for loop
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        Console.WriteLine(numbers[i]);
+    }
+
+    // Using a foreach loop
+    foreach (int number in numbers)
+    {
+        Console.WriteLine(number);
+    }
+    ```
+
+2. **Finding the Length of an Array:** Use `.Length` to get the number of elements.
+
+    ```csharp
+    int[] numbers = { 1, 2, 3 };
+    Console.WriteLine(numbers.Length); // Outputs: 3
+    ```
+**Important:** Since arrays are fixed in size, you can’t add or remove elements once created. You can only change their value.

@@ -335,4 +335,4 @@ Console.WriteLine(numbers[2]); // Outputs: 35
     int[] numbers = { 1, 2, 3 };
     Console.WriteLine(numbers.Length); // Outputs: 3
     ```
-**Important:** Since arrays are fixed in size, you can’t add or remove elements once created. You can only change their value.# C# Basics Cheatsheet
+**Important:** Since arrays are fixed in size, you can’t add or remove elements once created. You can only change their value.
